@@ -1,0 +1,1 @@
+- Cấp quyền cho ứng dụng: https://github.com/ParkSangGwon/TedPermission
