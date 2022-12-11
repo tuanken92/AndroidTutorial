@@ -8,3 +8,6 @@
 - SQL:
     + https://viblo.asia/p/su-dung-sqlite-database-trong-ung-dung-android-wjAM7alevmWe
 
+- Work with excel:
+    + https://github.com/ranitraj/ContactsEntrepot
+    + https://medium.com/geekculture/creating-an-excel-in-android-cd9c22198619

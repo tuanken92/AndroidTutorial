@@ -7,14 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+
+import com.github.ybq.android.spinkit.style.FadingCircle;
+
+import java.util.List;
 
 
 public class SQLActivity extends AppCompatActivity implements View.OnClickListener {
 
     DatabaseHandler databaseHandler;
-    Button btnCreateObject, btnAddStudent, btnDelStudent, btnGetAllStudent, btnGetStudent, btnEditStudent;
+    Button btnCreateObject, btnAddStudent, btnDelStudent, btnGetAllStudent, btnGetStudent, btnEditStudent, btnExportToFile;
     EditText edtIdStudent;
-
+    ProgressBar prbExportFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +54,17 @@ public class SQLActivity extends AppCompatActivity implements View.OnClickListen
         btnEditStudent = findViewById(R.id.btnEditStudent);
         btnEditStudent.setOnClickListener(this);
 
+        btnExportToFile = findViewById(R.id.btnExportToFile);
+        btnExportToFile.setOnClickListener(this);
+
         edtIdStudent = findViewById(R.id.edtIdStudent);
 
     }
 
     void InitVariables()
     {
-
+        prbExportFile = (ProgressBar)findViewById(R.id.prbExport);
+        prbExportFile.setIndeterminateDrawable(new FadingCircle());
     }
 
     public void onClick(View view) {
@@ -86,6 +95,24 @@ public class SQLActivity extends AppCompatActivity implements View.OnClickListen
 
             case R.id.btnGetAllStudent:
                 databaseHandler.getAllStudents();
+                break;
+
+            case R.id.btnExportToFile:
+                prbExportFile.setVisibility(View.VISIBLE);
+                prbExportFile.requestFocus();
+                List<Student> listStudent =  databaseHandler.getAllStudents();
+                //ChooseDirUtils.Init(this);
+                //ChooseDirUtils.ShowDlg();
+//                String dir = ChooseDirUtils.dir;
+//                if(dir == null)
+//                {
+//                    MyLib.Log("dir = null!");
+//                    return;
+//                }
+                String fileName = "/storage/emulated/0/Download/myStudents.xls";
+                ExcelUtils.exportDataIntoWorkbook(this, fileName, listStudent);
+                MyLib.Log("Done!" + fileName);
+                prbExportFile.setVisibility(View.INVISIBLE);
                 break;
 
 
