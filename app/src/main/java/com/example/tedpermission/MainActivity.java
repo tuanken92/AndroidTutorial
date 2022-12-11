@@ -3,6 +3,7 @@ package com.example.tedpermission;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -27,7 +28,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //UI
-    Button btnSelectFile, btnProgressbar, btnChooseLocation;
+    Button btnSelectFile, btnProgressbar, btnChooseLocation, btnSQL;
     TextView tvFilePath;
     ProgressBar prbDemo;
 
@@ -66,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnChooseLocation = (Button) findViewById(R.id.btnChooseDir);
         btnChooseLocation.setOnClickListener(this);
+
+        btnSQL = (Button) findViewById(R.id.btnSQLActivity);
+        btnSQL.setOnClickListener(this);
 
         tvFilePath = (TextView) findViewById(R.id.tvFilePath);
 
@@ -189,6 +193,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnChooseDir:
                 // Show dialog whenever you want by
                 chooser.show();
+                break;
+
+            case R.id.btnSQLActivity:
+                Intent myIntent = new Intent(this, SQLActivity.class);
+                this.startActivity(myIntent);
                 break;
         }
     }

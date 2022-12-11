@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SQLActivity">
+
+    <Button
+        android:id="@+id/btnCreateObject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Object"/>
+
+    <Button
+        android:id="@+id/btnAddStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Student"/>
+
+    <Button
+        android:id="@+id/btnGetAllStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get All Student"/>
+
+    <LinearLayout
+        android:layout_gravity="left"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:background="@color/colorAccent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="ID: "/>
+
+            <EditText
+                android:id="@+id/edtIdStudent"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginLeft="20dp"
+                android:text="0"
+                android:hint="id"/>
+        </TableRow>
+
+
+        <Button
+            android:id="@+id/btnGetStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Get Student"/>
+
+        <Button
+            android:id="@+id/btnDelStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Del Student"/>
+
+
+        <Button
+            android:id="@+id/btnEditStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Edit Student"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
